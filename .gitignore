@@ -1,0 +1,10 @@
+**/.mypy_cache/
+**/.vscode/
+**/__pycache__/
+**/dataset/
+**/.ipynb_checkpoints/
+data/
+checkpoints/
+.nfs*
+*.txt
+sync.ffs_db
