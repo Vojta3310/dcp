@@ -2,6 +2,7 @@ from mpl_toolkits import mplot3d
 
 
 import numpy as np
+import torch
 import matplotlib.pyplot as plt
 
 
@@ -36,8 +37,8 @@ def draw_Sequence(data, net):
   T=np.identity(4)
   Tp=np.identity(4)
   for i in range(4):#range(len(data)):
-    a_cloud=data[i][0]
-    b_cloud=data[i][1]
+    a_cloudO=data[i][0]
+    b_cloudO=data[i][1]
     R_ab = data[i][2]
     T_ab = data[i][3]
     
@@ -52,28 +53,30 @@ def draw_Sequence(data, net):
     T=T @ Ti
     
     O=T @ [0, 0, 0, 1]    
-    b_cloud= np.dot(T,np.r_[b_cloud,[np.ones(np.shape(b_cloud)[1])]])
+    b_cloud= np.dot(T,np.r_[b_cloudO,[np.ones(np.shape(b_cloudO)[1])]])
     
     ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='b', marker='o');
     ax.scatter3D(O[0], O[1], O[2],c='r', marker='^')
     
     #continue 
     
-    (R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(a_cloud, b_cloud)
+    (R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(torch.from_numpy(np.array([a_cloudO])), torch.from_numpy(np.array([b_cloudO])))
+    
     
     
     R=np.identity(3)
-    R[0]=R_ab_p[2,:]
-    R[1]=R_ab_p[0,:]
-    R[2]=R_ab_p[1,:]
-    R=R+np.identity(3)
-    Ti=np.c_[R,[T_ab_p[2],T_ab_p[0],T_ab_p[1]]]
+    R[0]=R_ab_p[0,2,:].detach().numpy()
+    R[1]=R_ab_p[0,0,:].detach().numpy()
+    R[2]=R_ab_p[0,1,:].detach().numpy()
+    #R=R+np.identity(3)
+    Ti=np.c_[R,[T_ab_p[0,2].detach().numpy(),T_ab_p[0,0].detach().numpy(),T_ab_p[0,1].detach().numpy()]]
     Ti=np.r_[Ti,[[0,0,0,1]]]
     
     Tp=Tp @ Ti
+    print(Tp)
     
     O=Tp @ [0, 0, 0, 1]    
-    b_cloud= np.dot(Tp,np.r_[b_cloud,[np.ones(np.shape(b_cloud)[1])]])
+    b_cloud= np.dot(Tp,np.r_[b_cloudO,[np.ones(np.shape(b_cloudO)[1])]])
     
     ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='c', marker='o');
     ax.scatter3D(O[0], O[1], O[2],c='m', marker='^')

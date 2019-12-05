@@ -1044,7 +1044,8 @@ def main():
         raise Exception("not implemented")
 
     if args.model == "dcp":
-        net = DCP(args).cuda()
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        net = DCP(args).to(device)#.cuda()
         if args.eval:
             if args.model_path is "":
                 model_path = (
