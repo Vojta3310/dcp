@@ -22,7 +22,7 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
 import odometry_data
-
+import draw
 
 # Part of the code is referred from: https://github.com/floodsung/LearningToCompare_FSL
 
@@ -945,6 +945,9 @@ def main():
         "--eval", action="store_true", default=False, help="evaluate the model"
     )
     parser.add_argument(
+        "--draw", action="store_true", default=False, help="show output of the model"
+    )
+    parser.add_argument(
         "--cycle",
         type=bool,
         default=False,
@@ -1061,6 +1064,9 @@ def main():
         raise Exception("Not implemented")
     if args.eval:
         test(args, net, test_loader, boardio, textio)
+    elif args.draw:
+      data=odometry_data.OdometryDataset("dataset/", "00", args.num_points)
+      draw.draw_Sequence(data, net)
     else:
         train(args, net, train_loader, test_loader, boardio, textio)
 

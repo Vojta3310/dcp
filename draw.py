@@ -25,30 +25,65 @@ def draw_pointCloud(a_cloud, b_cloud, R_ab, T_ab):
 
 
 
+def draw_Sequence(data, net):
+  fig = plt.figure()
+  ax = plt.axes(projection='3d')
+  
+  
+  a_cloud=data[0][0]
+  ax.scatter3D(list(a_cloud[0]), list(a_cloud[1]), list(a_cloud[2]),c='g', marker='o');
+  
+  T=np.identity(4)
+  Tp=np.identity(4)
+  for i in range(4):#range(len(data)):
+    a_cloud=data[i][0]
+    b_cloud=data[i][1]
+    R_ab = data[i][2]
+    T_ab = data[i][3]
+    
+    R=np.identity(3)
+    R[0]=R_ab[2,:]
+    R[1]=R_ab[0,:]
+    R[2]=R_ab[1,:]
+    R=R+np.identity(3)
+    Ti=np.c_[R,[T_ab[2],T_ab[0],T_ab[1]]]
+    Ti=np.r_[Ti,[[0,0,0,1]]]
+    
+    T=T @ Ti
+    
+    O=T @ [0, 0, 0, 1]    
+    b_cloud= np.dot(T,np.r_[b_cloud,[np.ones(np.shape(b_cloud)[1])]])
+    
+    ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='b', marker='o');
+    ax.scatter3D(O[0], O[1], O[2],c='r', marker='^')
+    
+    #continue 
+    
+    (R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(a_cloud, b_cloud)
+    
+    
+    R=np.identity(3)
+    R[0]=R_ab_p[2,:]
+    R[1]=R_ab_p[0,:]
+    R[2]=R_ab_p[1,:]
+    R=R+np.identity(3)
+    Ti=np.c_[R,[T_ab_p[2],T_ab_p[0],T_ab_p[1]]]
+    Ti=np.r_[Ti,[[0,0,0,1]]]
+    
+    Tp=Tp @ Ti
+    
+    O=Tp @ [0, 0, 0, 1]    
+    b_cloud= np.dot(Tp,np.r_[b_cloud,[np.ones(np.shape(b_cloud)[1])]])
+    
+    ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='c', marker='o');
+    ax.scatter3D(O[0], O[1], O[2],c='m', marker='^')
+    
+  plt.show()
 
 
 
-data=odometry_data.OdometryDataset("dataset/", "00", 10000)
-i=0
-draw_pointCloud(data[i][0], data[i][1], data[i][2], data[i][3])
+#data=odometry_data.OdometryDataset("dataset/", "00", 10000)
+#draw_Sequence(data, 0)
+#i=0
+#draw_pointCloud(data[i][0], data[i][1], data[i][2], data[i][3])
 
-exit()
-
-fig = plt.figure()
-
-ax = plt.axes(projection='3d')
-
-# Data for a three-dimensional line
-zline = np.linspace(0, 15, 1000)
-xline = np.sin(zline)
-yline = np.cos(zline)
-ax.plot3D(xline, yline, zline, 'gray')
-
-# Data for three-dimensional scattered points
-zdata = 15 * np.random.random(100)
-xdata = np.sin(zdata) + 0.1 * np.random.randn(100)
-ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
-ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens');
-
-
-plt.show()
