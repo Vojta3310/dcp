@@ -36,7 +36,7 @@ def draw_Sequence(data, net):
   
   T=np.identity(4)
   Tp=np.identity(4)
-  for i in range(4):#range(len(data)):
+  for i in range(500):#range(len(data)):
     a_cloudO=data[i][0]
     b_cloudO=data[i][1]
     R_ab = data[i][2]
@@ -55,7 +55,7 @@ def draw_Sequence(data, net):
     O=T @ [0, 0, 0, 1]    
     b_cloud= np.dot(T,np.r_[b_cloudO,[np.ones(np.shape(b_cloudO)[1])]])
     
-    ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='b', marker='o');
+    #ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='b', marker='o');
     ax.scatter3D(O[0], O[1], O[2],c='r', marker='^')
     
     #continue 
@@ -73,12 +73,11 @@ def draw_Sequence(data, net):
     Ti=np.r_[Ti,[[0,0,0,1]]]
     
     Tp=Tp @ Ti
-    print(Tp)
     
     O=Tp @ [0, 0, 0, 1]    
     b_cloud= np.dot(Tp,np.r_[b_cloudO,[np.ones(np.shape(b_cloudO)[1])]])
     
-    ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='c', marker='o');
+    #ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='c', marker='o');
     ax.scatter3D(O[0], O[1], O[2],c='m', marker='^')
     
   plt.show()
