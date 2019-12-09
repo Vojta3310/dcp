@@ -8,6 +8,38 @@ import matplotlib.pyplot as plt
 
 import odometry_data
 
+
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+def set_axes_equal(ax):
+    '''Make axes of 3D plot have equal scale so that spheres appear as spheres,
+    cubes as cubes, etc..  This is one possible solution to Matplotlib's
+    ax.set_aspect('equal') and ax.axis('equal') not working for 3D.
+
+    Input
+      ax: a matplotlib axis, e.g., as output from plt.gca().
+    '''
+
+    x_limits = ax.get_xlim3d()
+    y_limits = ax.get_ylim3d()
+    z_limits = ax.get_zlim3d()
+
+    x_range = abs(x_limits[1] - x_limits[0])
+    x_middle = np.mean(x_limits)
+    y_range = abs(y_limits[1] - y_limits[0])
+    y_middle = np.mean(y_limits)
+    z_range = abs(z_limits[1] - z_limits[0])
+    z_middle = np.mean(z_limits)
+
+    # The plot bounding box is a sphere in the sense of the infinity
+    # norm, hence I call half the max range the plot radius.
+    plot_radius = 0.5*max([x_range, y_range, z_range])
+
+    ax.set_xlim3d([x_middle - plot_radius, x_middle + plot_radius])
+    ax.set_ylim3d([y_middle - plot_radius, y_middle + plot_radius])
+    ax.set_zlim3d([z_middle - plot_radius, z_middle + plot_radius])
+    
 def draw_pointCloud(a_cloud, b_cloud, R_ab, T_ab):
   fig = plt.figure()
   ax = plt.axes(projection='3d')
@@ -28,15 +60,15 @@ def draw_pointCloud(a_cloud, b_cloud, R_ab, T_ab):
 
 def draw_Sequence(data, net):
   fig = plt.figure()
-  ax = plt.axes(projection='3d')
-  
+  ax = plt.gca(projection='3d')
+  #ax.set_aspect('equal')
   
   a_cloud=data[0][0]
   ax.scatter3D(list(a_cloud[0]), list(a_cloud[1]), list(a_cloud[2]),c='g', marker='o');
   
   T=np.identity(4)
   Tp=np.identity(4)
-  for i in range(500):#range(len(data)):
+  for i in range(10):#range(len(data)):
     a_cloudO=data[i][0]
     b_cloudO=data[i][1]
     R_ab = data[i][2]
@@ -60,9 +92,12 @@ def draw_Sequence(data, net):
     
     #continue 
     
-    (R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(torch.from_numpy(np.array([a_cloudO])), torch.from_numpy(np.array([b_cloudO])))
+    #(R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(torch.from_numpy(np.array([a_cloudO])), torch.from_numpy(np.array([b_cloudO])))
+    #torch.save(R_ab_p, "checkpoints/data/R_ab_p_" + str(i) + ".pt")
+    #torch.save(T_ab_p, "checkpoints/data/T_ab_p_" + str(i) + ".pt")
     
-    
+    R_ab_p=torch.load("checkpoints/data/R_ab_p_" + str(i) + ".pt")
+    T_ab_p=torch.load("checkpoints/data/T_ab_p_" + str(i) + ".pt")
     
     R=np.identity(3)
     R[0]=R_ab_p[0,2,:].detach().numpy()
@@ -77,9 +112,10 @@ def draw_Sequence(data, net):
     O=Tp @ [0, 0, 0, 1]    
     b_cloud= np.dot(Tp,np.r_[b_cloudO,[np.ones(np.shape(b_cloudO)[1])]])
     
-    #ax.scatter3D(list(b_cloud[0]), list(b_cloud[1]), list(b_cloud[2]),c='c', marker='o');
-    ax.scatter3D(O[0], O[1], O[2],c='m', marker='^')
+    ax.scatter3D(list(b_cloud[2]), list(b_cloud[0]), list(b_cloud[1]),c='c', marker='o');
+    ax.scatter3D(-O[1], -O[0], O[2],c='m', marker='^')
     
+  set_axes_equal(ax)
   plt.show()
 
 
