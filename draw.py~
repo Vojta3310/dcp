@@ -82,6 +82,8 @@ def draw_Sequence(data, net):
       continue 
     
     (R_ab_p, T_ab_p, R_ba_p, T_ba_p) = net(torch.from_numpy(np.array([a_cloud])), torch.from_numpy(np.array([b_cloud])))
+    R_ab_p=R_ab_p.detach().numpy()
+    T_ab_p=T_ab_p.detach().numpy()
     print(R_ab_p)
     print(T_ab_p)
     #torch.save(R_ab_p, "checkpoints/data/R_ab_p_" + str(i) + ".pt")
