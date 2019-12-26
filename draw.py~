@@ -49,7 +49,7 @@ def draw_pointCloud(ax, cloud, T, c):
 
   a_cloud= np.dot(T,np.r_[cloud,[np.ones(np.shape(cloud)[1])]])
   
-  ax.scatter3D(list(a_cloud[0]), list(a_cloud[1]), list(a_cloud[2]), s=.01,c=c, marker='o', zorder=3);
+  ax.scatter3D(list(a_cloud[0]), list(a_cloud[1]), list(a_cloud[2]), s=.001,c=c, marker='o', zorder=3);
   
 
 def draw_Sequence(data, net):
@@ -78,9 +78,12 @@ def draw_Sequence(data, net):
       draw_pointCloud(ax,b_cloud.astype("float32"), T.astype("float32"),'b')
     ax.scatter3D(O[0], O[1], O[2],c='r', marker='^',s=0.5, zorder=1)
   
-    continue 
+    if net is None:
+      continue 
     
-    (R_ab_p, T_ab_p, R_ba_p, T_ba_p,) = net(torch.from_numpy(np.array([a_cloudO])), torch.from_numpy(np.array([b_cloudO])))
+    (R_ab_p, T_ab_p, R_ba_p, T_ba_p) = net(torch.from_numpy(np.array([a_cloud])), torch.from_numpy(np.array([b_cloud])))
+    print(R_ab_p)
+    print(T_ab_p)
     #torch.save(R_ab_p, "checkpoints/data/R_ab_p_" + str(i) + ".pt")
     #torch.save(T_ab_p, "checkpoints/data/T_ab_p_" + str(i) + ".pt")
     
@@ -90,7 +93,7 @@ def draw_Sequence(data, net):
     
     
     
-    Ti=np.c_[R_ab_p,[T_ab_p[0],T_ab_p[1],T_ab_p[2]]]
+    Ti=np.c_[R_ab_p[0],[T_ab_p[0][0],T_ab_p[0][1],T_ab_p[0][2]]]
     Ti=np.r_[Ti,[[0,0,0,1]]]
     
     Tp=Tp @ Ti
@@ -107,7 +110,7 @@ def draw_Sequence(data, net):
 
 
 
-
-data=odometry_data.OdometryDataset("dataset/", "00", 1000, kombine=0)
-draw_Sequence(data, 0)
+if __name__ == "__main__":
+  data=odometry_data.OdometryDataset("dataset/", "00", 1000, kombine=0)
+  draw_Sequence(data, None)
 

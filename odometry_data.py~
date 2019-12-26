@@ -6,7 +6,7 @@ import util
 
 
 class OdometryDataset(tdata.Dataset):
-    def __init__(self, basedir, sequence, n_points, kombine=200):
+    def __init__(self, basedir, sequence, n_points, kombine=0):
         self._data = pykitti.odometry(basedir, sequence)
         self._poses = self._data.poses
         self._n_points = n_points
@@ -21,10 +21,10 @@ class OdometryDataset(tdata.Dataset):
         
         
     def get(self, i, j):
-      #a_cloud = self._velo[i][: self._n_points]
-      #b_cloud = self._velo[j][: self._n_points]
-      a_cloud = self._velo[i][np.random.choice(range(np.size(self._velo[i],0)),size=self._n_points).astype(int)]
-      b_cloud = self._velo[j][np.random.choice(range(np.size(self._velo[j],0)),size=self._n_points).astype(int)]
+      a_cloud = self._velo[i]#[: self._n_points]
+      b_cloud = self._velo[j]#[: self._n_points]
+      #a_cloud = self._velo[i][np.random.choice(range(np.size(self._velo[i],0)),size=self._n_points).astype(int)]
+      #b_cloud = self._velo[j][np.random.choice(range(np.size(self._velo[j],0)),size=self._n_points).astype(int)]
       #print(i, "-", j)
     
       Ta=self._poses[i]
@@ -54,6 +54,8 @@ class OdometryDataset(tdata.Dataset):
           i=round(i/self._kombine)
         
         a_cloud, b_cloud, T_ab, T_ba=self.get(i,j)
+        
+        #print(a_cloud)
         
         a_R = T_ab[:3, :3]
         a_T = T_ab[:3, 3]

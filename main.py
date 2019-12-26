@@ -1028,18 +1028,19 @@ def main():
             drop_last=False,
         )
     elif args.dataset == "odometry":
-        train_loader = DataLoader(
-            odometry_data.OdometryDataset("dataset/", "00", args.num_points),
-            batch_size=args.batch_size,
-            shuffle=True,
-            drop_last=True,
-        )
-        test_loader = DataLoader(
-            odometry_data.OdometryDataset("dataset/", "01", args.num_points),
-            batch_size=args.test_batch_size,
-            shuffle=False,
-            drop_last=False,
-        )
+        if not args.draw:
+          train_loader = DataLoader(
+              odometry_data.OdometryDataset("dataset/", "00", args.num_points),
+              batch_size=args.batch_size,
+              shuffle=True,
+              drop_last=True,
+          )
+          test_loader = DataLoader(
+              odometry_data.OdometryDataset("dataset/", "01", args.num_points),
+              batch_size=args.test_batch_size,
+              shuffle=False,
+              drop_last=False,
+          )
     else:
         raise Exception("not implemented")
 
