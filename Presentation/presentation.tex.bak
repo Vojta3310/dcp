@@ -1,0 +1,86 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+% arara: pdflatex: { synctex: true, shell: true }
+\pdfminorversion=7
+\documentclass[t]{beamer}
+\usetheme{texsx}
+\usepackage[czech]{babel}	
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}
+\usepackage{media9}
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\title{Deep Closest Point}
+\author{Nikolay Tsoy, Vojtěch Nydrle}
+\markboth{VIR, leden 2020}{}
+\date{\today}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+  
+  
+\begin{document}
+
+\begin{frame}
+	\thispagestyle{empty}
+  \titlepage
+  %\frametitle{Title}
+  %\tableofcontents[currentsection]
+\end{frame}
+
+    
+\begin{frame}<beamer>
+  \frametitle{Testing frame}
+	\onslide<2->\textbf{Bold text}
+  \begin{enumerate}
+		 \item<3-> item 1 
+		 \begin{itemize}
+		 	\item<4-> sub item 1\onslide<10->{ - new note}
+		 	\item<5-> sub \alert<9>{item 1}
+		 \end{itemize}	
+		 \item<6-> item 2
+		 \item<7> item 3
+		 \item<8-> item 4
+  \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}<beamer>
+  \frametitle{Images that changes}
+
+\begin{figure}[htb]
+	
+		\begin{overprint}
+		\centering
+		%\onslide<1> \includegraphics[width=0.6\textwidth]{matrix-00.pdf}
+		%\onslide<2> \includegraphics[width=0.6\textwidth]{matrix-01.pdf}
+		%\onslide<3> \includegraphics[width=0.6\textwidth]{matrix-02.pdf}
+		%\onslide<4> \includegraphics[width=0.6\textwidth]{matrix-03.pdf}
+		\end{overprint}
+\end{figure}		
+
+\end{frame}
+
+
+\begin{frame}<beamer>
+  \frametitle{Děkuji za pozornost}
+ %\includemedia[
+%     width=6cm,height=6cm,
+%     activate=pageopen,
+%     addresource=LPE2.mp4,
+%     flashvars={
+%         source=LPE2.mp4
+%        &autoPlay=true
+%     }
+%]{}{VPlayer.swf}
+\end{frame}		
+
+\end{document}

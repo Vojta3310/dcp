@@ -1,0 +1,28 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+\vskip1cm%
+
+  \begin{beamercolorbox}[sep=0.6cm,wd=\paperwidth,ht=0.6em]{frametitle} 
+        \vskip-0.3ex%
+        \strut\textbf{\insertframetitle}\strut
+        \vskip-0.8ex%
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.1em]{frametitle} 
+
+  \end{beamercolorbox}
+
+}
+
+
+\setbeamerfont{frametitle}{size=\Huge}
+\setbeamercolor{palette quaternary}{fg=white}
+\setbeamercolor{titlelike}{parent=palette quaternary}
+
+
+
+
+\mode<all>

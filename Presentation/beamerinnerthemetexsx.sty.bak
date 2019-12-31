@@ -1,0 +1,56 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fill[MyGray,opacity=1] (0,\the\paperheight/2+65/2) rectangle(\the\paperwidth,\the\paperheight/2+65/2+8);
+   \fill[MyBlue,opacity=1] (0,\the\paperheight/2+65/2) rectangle(\the\paperwidth,\the\paperheight/2-65/2);
+   \fill[MyGray,opacity=1] (0,\the\paperheight/2-65/2) rectangle(\the\paperwidth,\the\paperheight/2-65/2-8);
+    
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fill[MyBlue,opacity=1] (0,\the\paperheight) rectangle(\the\paperwidth,\the\paperheight-65);
+   \fill[MyGray,opacity=1] (0,\the\paperheight-65) rectangle(\the\paperwidth,\the\paperheight-73);
+   %\includegraphics[width=\paperwidth,height=\paperheight]{bg.pdf}
+  \fi
+  \end{tikzpicture}
+}
+
+
+% Title page
+\defbeamertemplate*{title page}{texsx}[1][]
+{
+\setbeamertemplate{background}{}
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering\vskip5.6em
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\textbf{\inserttitle}
+    \end{beamercolorbox}
+    %\vskip0.1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    
+  \endgroup
+  \vfill
+  \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+}
+\setbeamerfont{title}{size=\Huge}
+\setbeamercolor*{date}{fg=MyGray}
+% Items
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+
+
+\mode
+<all>
