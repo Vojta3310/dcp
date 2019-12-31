@@ -10,5 +10,6 @@
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
+\renewcommand{\baselinestretch}{1.5}
 
 \mode<all>

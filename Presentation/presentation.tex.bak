@@ -12,6 +12,12 @@
 \usepackage{media9}
 
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\atan2}{atan2}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+
+
 
 \title{Deep Closest Point}
 \author{Nikolay Tsoy, Vojtěch Nydrle}
@@ -37,6 +43,67 @@
 
     
 \begin{frame}<beamer>
+  \frametitle{Zadání}
+	\onslide<2->\textbf{Tema OJ1:}
+  \begin{itemize}
+\onslide<2-> \item Vyzkoušet DCP (https://arxiv.org/abs/1905.03304) na real-world datech jako náhrada standardního SLAM algoritmu.
+  \end{itemize}
+  
+$$$$
+  
+  \onslide<3->\textbf{DCP}
+    \begin{itemize}
+\onslide<3-> \item Deep Closest Point
+\onslide<3-> \item Deep Learning náhrada ICP
+  \end{itemize}  
+\end{frame}
+
+
+\begin{frame}<beamer>
+  \frametitle{ICP}
+	\onslide<2->\textbf{Iterační algoritmus}
+  \begin{itemize}
+	\onslide<3-> \item určuje $\textbf{R}_{xy}$ a $\vec{t}_{xy}$ mezi množinami bodů $X$ a $Y$
+	\begin{itemize}
+  		\onslide<3-> \item $X=\lbrace \vec x_1, \ldots, \vec x_N \rbrace \subset \mathbb{R}^3$
+  		\onslide<3-> \item $Y=\lbrace \vec y_1, \ldots, \vec y_N \rbrace \subset \mathbb{R}^3$
+  		\onslide<3-> \item $Y$ vznikne otočením a posunutím $X$
+  \end{itemize}
+  
+  
+  \onslide<4-> \item tak aby $E(\textbf{R}_{xy},\vec{t}_{xy})$ byla minimální
+	\begin{itemize}
+  		\onslide<4-> \item $\displaystyle E(\textbf{R}_{xy},\vec{t}_{xy})=\frac{1}{N}\sum_{i=1}^N \norm{\textbf{R}_{xy}\vec x_i+\vec{t}_{xy} -\vec y_{m(x_i)}}^2 $
+  		
+  		
+  		\onslide<4-> \item $\displaystyle m(x_i)=\argmin_j \norm{\textbf{R}_{xy}\vec x_i+\vec{t}_{xy} -\vec y_j}^2 $
+  \end{itemize}
+  \end{itemize}  
+\end{frame}
+
+
+\begin{frame}<beamer>
+  \frametitle{Problémy ICP}
+	%\onslide<2->\textbf{Iterační algoritmus}
+  \begin{enumerate}
+  \onslide<2-> \item nelze optimalizovat  $\textbf{R}_{xy}$, $\vec{t}_{xy}$ i $m$ najednou
+  \onslide<3-> \item v jednom kroku optimalizuje $m$ a v dalším  $\textbf{R}_{xy}$ a $\vec{t}_{xy}$
+  \onslide<4-> \item velmi často najde jen lokální optimum
+  \onslide<5-> \item neuvažuje zajímavost některých bodů 
+  \onslide<5-> \item neporadí si se šumem a řídkostí měření 
+  \end{enumerate}  
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\begin{frame}<beamer>
   \frametitle{Testing frame}
 	\onslide<2->\textbf{Bold text}
   \begin{enumerate}
@@ -50,8 +117,6 @@
 		 \item<8-> item 4
   \end{enumerate}
 \end{frame}
-
-
 
 \begin{frame}<beamer>
   \frametitle{Images that changes}
@@ -70,8 +135,11 @@
 \end{frame}
 
 
+
+
 \begin{frame}<beamer>
   \frametitle{Děkuji za pozornost}
+  
  %\includemedia[
 %     width=6cm,height=6cm,
 %     activate=pageopen,
