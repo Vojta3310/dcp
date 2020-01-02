@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  2 JAN 2020 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  2 JAN 2020 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1655,6 +1655,11 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 
 ] [37
 
+] [38
+
+]
+[39
+
 ]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
@@ -1665,24 +1670,17 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 214.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
-
-(./presentation.aux
-*************************************************
-* pdfbase warning: "rerun"
-* 
-* Rerun to get internal references right!
-*************************************************
-)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 214.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
+ (./presentation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 215.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 215.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31231 strings out of 492982
- 616803 string characters out of 6134896
+ 31235 strings out of 492982
+ 616841 string characters out of 6134896
  676538 words of memory out of 5000000
  34186 multiletter control sequences out of 15000+600000
  638452 words of font info for 97 fonts, out of 8000000 for 9000
@@ -1699,10 +1697,10 @@ fb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmsso17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (37 pages, 184782 bytes).
+Output written on presentation.pdf (39 pages, 189234 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

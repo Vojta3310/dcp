@@ -142,10 +142,11 @@
  	\onslide<2-> \item "KITTI Vision"  22 sekvencí k 11 se skutečnou pozici
   \onslide<3-> \item na jedné sekvenci jsme učily a druhé testovaly
 	\end{itemize} 
-%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
+	\onslide<3->\textbf{Začlenění do DCP:}
 	\begin{enumerate}  
-   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+   \onslide<4-> \item celý lidarový záběr je natolik velký při forwardpass spotřebuje víc jak 16 GB RAM
+    proto jsme použili jen prvních $N$ bodů
+   \onslide<5-> \item špatně jsme pochopili popis datasetu a trénovaly na špatně spočítaných rotačních maticích
 %  \onslide<6-> \item 
   \end{enumerate}  
 \end{frame}
@@ -183,38 +184,16 @@
 
 
 
-
-\begin{frame}<beamer>
-  \frametitle{Testing frame}
-	\onslide<2->\textbf{Bold text}
-  \begin{enumerate}
-		 \item<3-> item 1 
-		 \begin{itemize}
-		 	\item<4-> sub item 1\onslide<10>{ - new note}
-		 	\item<5-> sub \alert<9>{item 1}
-		 \end{itemize}	
-		 \item<6-> item 2
-		 \item<7-9> item 3
-		 \item<8-> item 4
-		 \item<11-> item 5
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}<beamer>
-  \frametitle{Images that changes}
-
-\begin{figure}[htb]
+%\begin{figure}[htb]
 	
-		\begin{overprint}
-		\centering
+		%\begin{overprint}
+		%\centering
 		%\onslide<1> \includegraphics[width=0.6\textwidth]{matrix-00.pdf}
 		%\onslide<2> \includegraphics[width=0.6\textwidth]{matrix-01.pdf}
 		%\onslide<3> \includegraphics[width=0.6\textwidth]{matrix-02.pdf}
 		%\onslide<4> \includegraphics[width=0.6\textwidth]{matrix-03.pdf}
-		\end{overprint}
-\end{figure}		
-
-\end{frame}
+		%\end{overprint}
+%\end{figure}		
 
 
 

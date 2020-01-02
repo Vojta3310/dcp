@@ -142,12 +142,12 @@
  	\onslide<2-> \item "KITTI Vision"  22 sekvencí k 11 se skutečnou pozici
   \onslide<3-> \item na jedné sekvenci jsme učily a druhé testovaly
 	\end{itemize} 
-%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
-%	\begin{enumerate}  
-%   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
-%  \onslide<6-> \item 
-%  \end{enumerate}  
+	\onslide<3->\textbf{Problémy začlenění KITTY do DCP:}
+	\begin{enumerate}  
+   \onslide<4-> \item celý lidarový záběr je natolik velký při forwardpass spotřebuje víc jak 16 GB RAM
+    proto jsme použili jen prvních $N$ bodů
+   \onslide<5-> \item špatně jsme pochopili popis datasetu a trénovaly na špatně spočítaných rotačních maticích
+  \end{enumerate}  
 \end{frame}
 
 \begin{frame}<beamer>
