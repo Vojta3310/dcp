@@ -12,8 +12,9 @@
 \usepackage{media9}
 
 \DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\softmax}{softmax}
+\DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator{\atan2}{atan2}
 \newcommand{\norm}[1]{\lVert #1 \rVert}
 
@@ -49,7 +50,6 @@
 \onslide<2-> \item Vyzkoušet DCP (https://arxiv.org/abs/1905.03304) na real-world datech jako náhrada standardního SLAM algoritmu.
   \end{itemize}
   
-$$$$
   
   \onslide<3->\textbf{DCP}
     \begin{itemize}
@@ -90,14 +90,95 @@ $$$$
   \onslide<3-> \item v jednom kroku optimalizuje $m$ a v dalším  $\textbf{R}_{xy}$ a $\vec{t}_{xy}$
   \onslide<4-> \item velmi často najde jen lokální optimum
   \onslide<5-> \item neuvažuje zajímavost některých bodů 
-  \onslide<5-> \item neporadí si se šumem a řídkostí měření 
+  \onslide<6-> \item neporadí si se šumem a řídkostí měření 
   \end{enumerate}  
 \end{frame}
 
 
 
+\begin{frame}<beamer>
+  \frametitle{DCP}
+  \begin{enumerate}
+  \onslide<2-> \item nejprve stanoví $m(x_i)$ 
+  \onslide<3-> \item z odpovídajících si $\vec x_i$ a $\vec y_i \in \mathbb{R}^3$ vypočte $\textbf{R}_{xy}$ a $\vec{t}_{xy}$
+  \onslide<4-> \item $\displaystyle \vec x_c = \frac{1}{N}\sum_{i=1}^N\vec x_i,~\vec y_c = \frac{1}{N}\sum_{i=1}^N\vec y_i$
+  \onslide<5-> \item $\displaystyle \textbf{H} = \sum_{i=1}^N (\vec x_i-\vec x_c)(\vec y_{m(x_i)}-\vec y_c)^T = \textbf{USV}^T$
+  \onslide<6-> \item $\displaystyle \textbf{R}_{xy}=\textbf{VU}^T, ~ \vec{t}_{xy}=\vec y_c - \textbf{R}_{xy}\vec x_c$
+  \end{enumerate}  
+\end{frame}
 
 
+\begin{frame}<beamer>
+  \frametitle{DCP - nalezení $m(x_i)$}
+  \begin{enumerate}
+  \onslide<2-> \item PointNet nebo DGCNN před poslední vrstvou 
+  \onslide<3-> \item generuje $\textit{F}_X=\lbrace \vec x_1^L, \ldots, \vec x_N^L  \rbrace \subset \mathbb{R}^P $ a $\textit{F}_Y=\lbrace \vec y_1^L, \ldots, \vec y_N^L  \rbrace \subset \mathbb{R}^P$
+  \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
+  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+  \onslide<6-> \item taky poznáváme podobné body ne podle barvy a polohy ale podle významu
+  \end{enumerate}  
+\end{frame}
+
+
+\begin{frame}<beamer>
+  \frametitle{DCP}
+  \onslide<2->\textbf{Učení:}
+  \begin{enumerate}
+  \onslide<2-> \item $\displaystyle L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta}$
+  \onslide<2-> \item $\textbf{R}_{xy}^g$ a $\vec{t}_{xy}^g$ popisují skutečnou transformaci, $\theta$ jsou parametry CNN
+	\end{enumerate} 
+	\onslide<3->\textbf{Závěr autorů:}
+	\begin{enumerate}  
+   \onslide<4-> \item DCP je dost spolehlivý na určení kvalitního výstupu v jednom běhu, ale nechá se ještě doplnit ICP.
+  \onslide<5-> \item Může být snadno použit ve složitějších například SALM
+  \end{enumerate}  
+\end{frame}
+
+
+\begin{frame}<beamer>
+  \frametitle{Naše práce}
+  \onslide<2->\textbf{Dataset:}
+  \begin{itemize}
+ 	\onslide<2-> \item "KITTI Vision"  22 sekvencí k 11 se skutečnou pozici
+  \onslide<3-> \item na jedné sekvenci jsme učily a druhé testovaly
+	\end{itemize} 
+%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
+	\begin{enumerate}  
+   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
+%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+%  \onslide<6-> \item 
+  \end{enumerate}  
+\end{frame}
+
+\begin{frame}<beamer>
+  \frametitle{Dosažené výsledky}
+%  \onslide<2->\textbf{Učení:}
+%  \begin{enumerate}
+%  \onslide<2-> \item $\displaystyle L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta}$
+%  \onslide<2-> \item $\textbf{R}_{xy}^g$ a $\vec{t}_{xy}^g$ popisují skutečnou transformaci, $\theta$ jsou parametry CNN
+%	\end{enumerate} 
+%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
+%	\begin{enumerate}  
+%   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
+%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+%  \onslide<6-> \item 
+%  \end{enumerate}  
+\end{frame}
+
+\begin{frame}<beamer>
+  \frametitle{Možné zlepšení}
+%  \onslide<2->\textbf{Učení:}
+%  \begin{enumerate}
+%  \onslide<2-> \item $\displaystyle L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta}$
+%  \onslide<2-> \item $\textbf{R}_{xy}^g$ a $\vec{t}_{xy}^g$ popisují skutečnou transformaci, $\theta$ jsou parametry CNN
+%	\end{enumerate} 
+%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
+%	\begin{enumerate}  
+%   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
+%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+%  \onslide<6-> \item 
+%  \end{enumerate}  
+\end{frame}
 
 
 
@@ -109,12 +190,13 @@ $$$$
   \begin{enumerate}
 		 \item<3-> item 1 
 		 \begin{itemize}
-		 	\item<4-> sub item 1\onslide<10->{ - new note}
+		 	\item<4-> sub item 1\onslide<10>{ - new note}
 		 	\item<5-> sub \alert<9>{item 1}
 		 \end{itemize}	
 		 \item<6-> item 2
-		 \item<7> item 3
+		 \item<7-9> item 3
 		 \item<8-> item 4
+		 \item<11-> item 5
   \end{enumerate}
 \end{frame}
 
