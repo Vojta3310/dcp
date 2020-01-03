@@ -145,25 +145,24 @@ Při učení se používá ztrátová funkce
 \headerbox{Výsledky autorů}{name=results,column=3,row=0,bottomaligned=dcp}{
 Autoři původního článku prováděli experimenty na datasetu ModelNet40, který obsahuje 12 311 CAD modelů rozdělených do 40 kategorii. Použili 9 843 modelů na trénování a 2 468 na testování, modely velikostně přizpůsobily aby byly vepsány jednotkové kouli, náhodně otáčely v rozsahu $45^\circ$ a posouvaly až o $0.5$.
 
-Měřili střední kvadratickou odchylku (RMSE) a střední absolutní chybu(MAE). Porovnání DCP a ostatních algoritmu je v tabulce.
-
+Porovnání DCP a ostatních algoritmu je v tabulce.
 \begin{center}
 \begin{tabular}{l l l l l l l}
 \toprule
-Model 				& RMSE(R)			& MAE(R)			& RMSE(t)		& MAE(t)\\
+Model 				& RMSE(R)		& RMSE(t)	\\
 \midrule
-ICP					& 29.9148		& 23.5448	& 0.2909		& 0.2488\\
-Go-ICP 			& 11.8523		& 2.5885		& 0.0257		& 0.0071\\
-FGR 					& 9.3628			& 1.9993		& 0.0139		& 0.0028\\
-PointNetLK 	& 15.0954		& 15.0954	& 0.0221		& 0.0054\\
+ICP					& 29.9148		& 0.2909		\\
+Go-ICP 			& 11.8523		& 0.0257		\\
+FGR 					& 9.3628			& 0.0139		\\
+PointNetLK 	& 15.0954		& 0.0221		\\
 \midrule
-DCP					& 1.143385			& 0.770573		& 0.001786		& 0.001195\\
+DCP					& 1.143385		& 0.001786	\\
 \bottomrule
 \end{tabular}
-\captionof{table}{Table caption}
+\captionof{table}{Porovnání s jinými metodami}
 \end{center}
+Dále ukázaly že s DGCNN dosahuje DCP lepších výsledku než s PointNet, a je možné zpřesnit výsledky následným použitím IPC.
 }
-
 
 %----------------------------------------------------------------------------------------
 %	Naše výsledky

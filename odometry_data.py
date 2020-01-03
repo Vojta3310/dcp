@@ -6,7 +6,7 @@ import util
 
 
 class OdometryDataset(tdata.Dataset):
-    def __init__(self, basedir, sequence, n_points, kombine=0):
+    def __init__(self, basedir, sequence, n_points, kombine=100):
         self._data = pykitti.odometry(basedir, sequence)
         self._poses = self._data.poses
         self._n_points = n_points
@@ -52,6 +52,8 @@ class OdometryDataset(tdata.Dataset):
         if self._kombine>0:
           j=i%self._kombine
           i=round(i/self._kombine)
+          if j>= i:
+            j=j+1
         
         a_cloud, b_cloud, T_ab, T_ba=self.get(i,j)
         

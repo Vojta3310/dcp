@@ -948,6 +948,9 @@ def main():
         "--draw", action="store_true", default=False, help="show output of the model"
     )
     parser.add_argument(
+        "--save", action="store_true", default=False, help="save data necesary to show output of the model"
+    )
+    parser.add_argument(
         "--cycle",
         type=bool,
         default=False,
@@ -1030,13 +1033,13 @@ def main():
     elif args.dataset == "odometry":
         if not args.draw:
           train_loader = DataLoader(
-              odometry_data.OdometryDataset("dataset/", "00", args.num_points),
+              odometry_data.OdometryDataset("dataset/", "01", args.num_points),
               batch_size=args.batch_size,
               shuffle=True,
               drop_last=True,
           )
           test_loader = DataLoader(
-              odometry_data.OdometryDataset("dataset/", "01", args.num_points),
+              odometry_data.OdometryDataset("dataset/", "00", args.num_points),
               batch_size=args.test_batch_size,
               shuffle=False,
               drop_last=False,
@@ -1072,6 +1075,9 @@ def main():
     elif args.draw:
       data=odometry_data.OdometryDataset("dataset/", "00", args.num_points)
       draw.draw_Sequence(data, net)
+    elif args.save:
+      data=odometry_data.OdometryDataset("dataset/", "00", args.num_points)
+      draw.save_Sequence(data, net)
     else:
         train(args, net, train_loader, test_loader, boardio, textio)
 

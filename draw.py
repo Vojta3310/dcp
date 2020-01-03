@@ -110,7 +110,23 @@ def draw_Sequence(data, net):
   set_axes_equal(ax)
   plt.show()
 
-
+def save_Sequence(data, net):
+  for i in range(len(data)):
+    a_cloud=data[i][0]
+    b_cloud=data[i][1]
+    R_ab = data[i][2]
+    T_ab = data[i][3]
+    
+    (R_ab_p, T_ab_p, R_ba_p, T_ba_p) = net(torch.from_numpy(np.array([a_cloud])), torch.from_numpy(np.array([b_cloud])))
+    R_ab_p=R_ab_p.detach().numpy()
+    T_ab_p=T_ab_p.detach().numpy()
+    #print(R_ab_p)
+    #print(T_ab_p)
+    torch.save(R_ab_p, "checkpoints/data/R_ab_p_" + str(i) + ".pt")
+    torch.save(T_ab_p, "checkpoints/data/T_ab_p_" + str(i) + ".pt")
+    
+    #R_ab_p=torch.load("checkpoints/data/R_ab_p_" + str(i) + ".pt")
+    #T_ab_p=torch.load("checkpoints/data/T_ab_p_" + str(i) + ".pt")
 
 if __name__ == "__main__":
   data=odometry_data.OdometryDataset("dataset/", "00", 1000, kombine=0)
