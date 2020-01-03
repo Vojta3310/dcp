@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  2 JAN 2020 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  3 JAN 2020 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -441,8 +441,8 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 
 Paperwidth=845.04684pt
 Paperheight=1195.01575pt
-BasePaperwidth=676.04005pt
-BasePaperheight=956.01624pt
+BasePaperwidth=659.1355pt
+BasePaperheight=932.11081pt
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -869,7 +869,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-LaTeX Info: Redefining \atan2 on input line 38.
+LaTeX Info: Redefining \atan2 on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
@@ -1051,19 +1051,19 @@ File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
 )) (./poster.aux)
 \openout1 = `poster.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1141,15 +1141,15 @@ ABD: EveryShipout initializing macros
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: landscape 
-* h-part:(L,W,R)=(34.14342pt, 887.7294pt, 34.14342pt)
-* v-part:(T,H,B)=(34.14342pt, 607.75322pt, 34.14342pt)
-* \paperwidth=956.01624pt
-* \paperheight=676.04005pt
-* \textwidth=887.7294pt
-* \textheight=607.75322pt
-* \oddsidemargin=-38.12657pt
-* \evensidemargin=-38.12657pt
-* \topmargin=-75.12657pt
+* h-part:(L,W,R)=(33.28966pt, 865.5315pt, 33.28966pt)
+* v-part:(T,H,B)=(33.28966pt, 592.55618pt, 33.28966pt)
+* \paperwidth=932.11081pt
+* \paperheight=659.1355pt
+* \textwidth=865.5315pt
+* \textheight=592.55618pt
+* \oddsidemargin=-38.98033pt
+* \evensidemargin=-38.98033pt
+* \topmargin=-75.98033pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1170,24 +1170,20 @@ ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 94.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 94.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 94.
-LaTeX Font Info:    Try loading font information for U+msa on input line 94.
+(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 95.
+LaTeX Font Info:    Try loading font information for U+msa on input line 95.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 94.
+LaTeX Font Info:    Try loading font information for U+msb on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1810) in paragraph at lines 109--109
-[]\T1/ppl/m/n/10 Vyzkou²et DCP na real-world dat-ech jako
- []
-
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
@@ -1195,81 +1191,96 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/sc' tried instead on input line 109.
 Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-<figures/placeholder.jpg, id=33, 351.3125pt x 193.72375pt>
-File: figures/placeholder.jpg Graphic file (type jpg)
-<use figures/placeholder.jpg>
-Package pdftex.def Info: figures/placeholder.jpg  used on input line 148.
-(pdftex.def)             Requested size: 165.54796pt x 91.2896pt.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 148.
-File: figures/placeholder.jpg Graphic file (type jpg)
-<use figures/placeholder.jpg>
-Package pdftex.def Info: figures/placeholder.jpg  used on input line 148.
-(pdftex.def)             Requested size: 165.54796pt x 91.2896pt.
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-No file poster.bbl.
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (8.70837pt too wide) in paragraph at lines 225--225
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+\T1/ppl/m/n/10 pouºí-vaná p°i zarovnání sekvencí, je-jíº
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 225.
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Underfull \hbox (badness 2512) in paragraph at lines 165--165
+\T1/ppl/m/n/10 40 kat-e-gorii. Pouºili 9 843 mod-el· na
+ []
+
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 165.
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 201.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 225.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 201.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
- [2
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/placeholder.jpg>
-] (./poster.aux) ) 
+Underfull \hbox (badness 1005) in paragraph at lines 217--217
+[]\T1/ppl/m/n/10 Natrénovat neu-ronovou sít na v²ech
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 217--217
+\T1/ppl/m/n/10 moºných kom-bi-nacích záb¥r·, ste-jné
+ []
+
+
+Underfull \hbox (badness 8094) in paragraph at lines 217--217
+[]\T1/ppl/m/n/10 Po vy-po£tení poz-ice po-mocí DCP
+ []
+
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Underfull \hbox (badness 1107) in paragraph at lines 229--229
+\T1/ppl/m/n/10 sion" dataset, ob-sahu-jící 22 nahrávek jízd
+ []
+
+
+Underfull \hbox (badness 7256) in paragraph at lines 229--229
+[]\T1/ppl/m/n/10 DCP bylo trénováno na jedné jízd¥ a
+ []
+
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[2
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./poster.aux) ) 
 Here is how much of TeX's memory you used:
- 19655 strings out of 492982
- 415476 string characters out of 6134896
- 511227 words of memory out of 5000000
- 22812 multiletter control sequences out of 15000+600000
- 29048 words of font info for 50 fonts, out of 8000000 for 9000
+ 19419 strings out of 492982
+ 409076 string characters out of 6134896
+ 496813 words of memory out of 5000000
+ 22581 multiletter control sequences out of 15000+600000
+ 30842 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,92p,612b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
-atino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on poster.pdf (1 page, 145893 bytes).
+ 62i,11n,92p,519b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on poster.pdf (1 page, 130764 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

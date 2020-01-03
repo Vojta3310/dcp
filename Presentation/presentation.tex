@@ -14,6 +14,7 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\softmax}{softmax}
+\DeclareMathOperator*{\argsoftmax}{argsoftmax}
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator{\atan2}{atan2}
 \newcommand{\norm}[1]{\lVert #1 \rVert}
@@ -114,7 +115,7 @@
   \onslide<2-> \item PointNet nebo DGCNN před poslední vrstvou 
   \onslide<3-> \item generuje $\textit{F}_X=\lbrace \vec x_1^L, \ldots, \vec x_N^L  \rbrace \subset \mathbb{R}^P $ a $\textit{F}_Y=\lbrace \vec y_1^L, \ldots, \vec y_N^L  \rbrace \subset \mathbb{R}^P$
   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+  \onslide<5-> \item $\displaystyle m(x_i)=\argsoftmax_{y\in Y}(\Phi(y)^T {\Phi(x_i)})$, $\Phi$ je "Transformer"
   \onslide<6-> \item taky poznáváme podobné body ne podle barvy a polohy ale podle významu
   \end{enumerate}  
 \end{frame}
@@ -167,17 +168,12 @@
 
 \begin{frame}<beamer>
   \frametitle{Možné zlepšení}
-%  \onslide<2->\textbf{Učení:}
-%  \begin{enumerate}
-%  \onslide<2-> \item $\displaystyle L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta}$
-%  \onslide<2-> \item $\textbf{R}_{xy}^g$ a $\vec{t}_{xy}^g$ popisují skutečnou transformaci, $\theta$ jsou parametry CNN
-%	\end{enumerate} 
-%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
-%	\begin{enumerate}  
-%   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
-%  \onslide<6-> \item 
-%  \end{enumerate}  
+\begin{itemize}
+\onslide<2-> \item Natrénovat neuronovou sít na všech možných kombinacích záběrů, stejné scény, ne jen na dvou po sobě jdoucích.
+\onslide<3-> \item Trénovat neuronovou sít na více jízdách než jen na jedné.
+\onslide<4-> \item Při výpočtu aktuální pozice nevycházet jen z předešlého záběru scény ale všech v dosahu lidaru.
+\onslide<5-> \item Po vypočtení pozice pomocí DCP použít na tento výsledek ještě ICP pro zpřesnění výsledku.
+\end{itemize}
 \end{frame}
 
 
@@ -198,7 +194,7 @@
 
 
 \begin{frame}<beamer>
-  \frametitle{Děkuji za pozornost}
+  \frametitle{Děkujeme za pozornost}
   
  %\includemedia[
 %     width=6cm,height=6cm,
