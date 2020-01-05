@@ -115,7 +115,7 @@
   \onslide<2-> \item PointNet nebo DGCNN před poslední vrstvou 
   \onslide<3-> \item generuje $\textit{F}_X=\lbrace \vec x_1^L, \ldots, \vec x_N^L  \rbrace \subset \mathbb{R}^P $ a $\textit{F}_Y=\lbrace \vec y_1^L, \ldots, \vec y_N^L  \rbrace \subset \mathbb{R}^P$
   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-  \onslide<5-> \item $\displaystyle m(x_i)=\argsoftmax_{y\in Y}(\Phi(y)^T {\Phi(x_i)})$, $\Phi$ je "Transformer"
+  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\Phi(Y)^T {\Phi(x_i)})$, $\Phi$ je "Transformer"
   \onslide<6-> \item taky poznáváme podobné body ne podle barvy a polohy ale podle významu
   \end{enumerate}  
 \end{frame}
@@ -154,22 +154,49 @@
 \begin{frame}<beamer>
   \frametitle{Dosažené výsledky}
 %  \onslide<2->\textbf{Učení:}
-%  \begin{enumerate}
-%  \onslide<2-> \item $\displaystyle L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta}$
-%  \onslide<2-> \item $\textbf{R}_{xy}^g$ a $\vec{t}_{xy}^g$ popisují skutečnou transformaci, $\theta$ jsou parametry CNN
-%	\end{enumerate} 
-%	\onslide<3->\onslide<2->\textbf{Závěr autorů:}
-%	\begin{enumerate}  
-%   \onslide<4-> \item $\vec x_i^L$ a $\vec y_i^L$ "sémanticky" popisují bod $\vec x_i$ a $\vec y_i$
-%  \onslide<5-> \item $\displaystyle m(x_i)=\softmax(\textit{F}_Y {x_i^L}^T)$
+  \begin{enumerate}
+  \onslide<2-> \item načíst dataset do formátu, který vyžaduje DCP
+	\onslide<3-> \item natrénovat na prvních $N$ bodech pointkloudů jedné sekvence \onslide<5-> na testovacích datech veliká chyba
+  \onslide<6-> \item natrénovat na náhodných $N$ bodech pointkloudů jedné sekvence\onslide<7-> zlepšení výsledků
+  \onslide<7-> \item předělat dataset na trénování všech kombinacích záběrů se společnou částí scény
+  \onslide<8-> jedna epocha se trénuje přes dvě hodiny $\rightarrow$ nestihly jsme natrénovat
 %  \onslide<6-> \item 
-%  \end{enumerate}  
+  \end{enumerate}  
 \end{frame}
+
+\begin{frame}<beamer>
+  \frametitle{Dosažené výsledky}
+\begin{figure}[htb]
+		\begin{overprint}
+		\centering
+		\onslide<1> \includegraphics[width=0.6\textwidth]{02.png}
+		\onslide<2> \includegraphics[width=0.6\textwidth]{01.png}
+		%\onslide<3> \includegraphics[width=0.6\textwidth]{matrix-02.pdf}
+		%\onslide<4> \includegraphics[width=0.6\textwidth]{matrix-03.pdf}
+		\end{overprint}
+\end{figure}
+\end{frame}
+
+\begin{frame}<beamer>
+  \frametitle{Proč to nefunguje?}
+%  \onslide<2->\textbf{Učení:}
+  \begin{enumerate}
+  \onslide<2-> \item testováno na otočený, posunutých a zašuměných objektech
+	\onslide<3-> \item ne na deformovaných objektech
+  \onslide<6-> \item přebývající body jsou špatně přiřazeny
+  \end{enumerate} 
+  \onslide<7->\textbf{Lze to zpravit?}
+  \begin{enumerate}
+  \onslide<8-> \item záběru odstranit část scény (určenou směrem a rychlostí pohybu)
+  \onslide<9-> \item hypotézu lze ověřit otestováním na datech z interiéru
+  \end{enumerate}  
+\end{frame}
+
 
 \begin{frame}<beamer>
   \frametitle{Možné zlepšení}
 \begin{itemize}
-\onslide<2-> \item Natrénovat neuronovou sít na všech možných kombinacích záběrů, stejné scény, ne jen na dvou po sobě jdoucích.
+\onslide<2-> \item Nahradit $m=\softmax(\Phi_Y(y)^T \Phi_X(x_i))$ složitější funkcí, která by se nesnažila přiřadit body co nejsou v druhé množině.
 \onslide<3-> \item Trénovat neuronovou sít na více jízdách než jen na jedné.
 \onslide<4-> \item Při výpočtu aktuální pozice nevycházet jen z předešlého záběru scény ale všech v dosahu lidaru.
 \onslide<5-> \item Po vypočtení pozice pomocí DCP použít na tento výsledek ještě ICP pro zpřesnění výsledku.
@@ -179,16 +206,7 @@
 
 
 
-%\begin{figure}[htb]
-	
-		%\begin{overprint}
-		%\centering
-		%\onslide<1> \includegraphics[width=0.6\textwidth]{matrix-00.pdf}
-		%\onslide<2> \includegraphics[width=0.6\textwidth]{matrix-01.pdf}
-		%\onslide<3> \includegraphics[width=0.6\textwidth]{matrix-02.pdf}
-		%\onslide<4> \includegraphics[width=0.6\textwidth]{matrix-03.pdf}
-		%\end{overprint}
-%\end{figure}		
+		
 
 
 

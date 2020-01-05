@@ -114,23 +114,27 @@ DCP je DL varianta standardního ICP algoritmu. (https://arxiv.org/abs/1905.0330
 
 \headerbox{DCP - Deep Closest Point}{name=dcp,column=1,row=0,span=2}{
 \begin{multicols}{2}
-Na rozdíl od ICP nejprve stanoví přiřezaní odpovídajících si bodů $y=m(\vec x), \vec x \in Y, \vec x \in Y$. Poté z odpovídajících si dvojic $\vec x_i$ a $\vec y_i = m(\vec x_i)$ vypočte rotaci $\textbf{R}_{xy}$ a translaci $\vec{t}_{xy}$ mezi množinami $X$ a $Y$.
-Těžiště množin je:
-$$ \vec x_c = \frac{1}{N}\sum_{i=1}^N\vec x_i,~\vec y_c = \frac{1}{N}\sum_{i=1}^N\vec y_i$$
-a jejich cross-covariantní matice:
-   $$ \textbf{H} = \sum_{i=1}^N (\vec x_i-\vec x_c)(\vec y_{m(x_i)}-\vec y_c)^T = \textbf{USV}^T$$
-ze které se nechá vypočíst posun a rotace:
-   $$\displaystyle \textbf{R}_{xy}=\textbf{VU}^T, ~ \vec{t}_{xy}=\vec y_c - \textbf{R}_{xy}\vec x_c.$$
-
+Na rozdíl od ICP nejprve stanoví přiřezaní odpovídajících si bodů $y=m(\vec x), \vec x \in Y, \vec x \in Y$. 
 %\vspace{1.5em}
+
 Pro stanovení odpovídajících si bodů používá PointNet nebo DGCNN skácený o poslední vrstvu, tím ke každému bodu $\vec x_i$ dostane mnohorozměrný vektor $\vec x_i^L$, popisující význam tohoto bodu. Tedy z množin $X$ a $Y$ vypočítá množiny $\textit{F}_X=\lbrace \vec x_1^L, \ldots, \vec x_N^L  \rbrace \subset \mathbb{R}^P $ a $\textit{F}_Y=\lbrace \vec y_1^L, \ldots, \vec y_N^L  \rbrace \subset \mathbb{R}^P$, použitím naučených parametrů $\theta$ použité neuronové sítě. 
   
 Pak vypočte přiřazení odpovídajících si bodů: 
-  $$m(x_i)=\argsoftmax_{y \in Y}(\Phi_Y(y)^T \Phi_X(x_i)),$$
+  $$m(x_i)=\softmax(\Phi_Y(Y)^T \Phi_X(x_i)),$$
 kde $\Phi$ funkce reagující na společné znaky množin.
-$$\Phi_Y(y)=y^L+\phi(y_i^L,\textit{F}_X)$$
+$$\Phi_Y(Y)=\textit{F}_Y+\phi(\textit{F}_Y,\textit{F}_X)$$
 $$\Phi_X(x_i)=x_i^L+\phi(x_i^L,\textit{F}_Y)$$
-$\phi$ je asymetrická funkce zvaná "Transformer", používaná při zarovnání sekvencí, jejíž parametry se také učí  při učení celého DCP modelu.
+$\phi$ je asymetrická funkce zvaná "Transformer", používaná při zarovnání sekvencí, jejíž parametry se také učí  při učení celého DCP modelu. 
+
+Poté z odpovídajících si dvojic $\vec x_i$ a $\hat \vec y_i = \textbf{Y}^T m(\vec x_i)$, kde $\textbf{Y}$ je matice z prvků $Y$, vypočte rotaci $\textbf{R}_{xy}$ a translaci $\vec{t}_{xy}$ mezi množinami $X$ a $Y$.
+Těžiště množin je:
+$$ \vec x_c = \frac{1}{N}\sum_{i=1}^N\vec x_i,~\vec y_c = \frac{1}{N}\sum_{i=1}^N \hat \vec y_i$$
+a jejich cross-covariantní matice:
+   $$ \textbf{H} = \sum_{i=1}^N (\vec x_i-\vec x_c)(\hat \vec y_i-\vec y_c)^T = \textbf{USV}^T$$
+ze které se nechá vypočíst posun a rotace:
+   $$ \textbf{R}_{xy}=\textbf{VU}^T, ~ \vec{t}_{xy}=\vec y_c - \textbf{R}_{xy}\vec x_c.$$
+
+
 
 Při učení se používá ztrátová funkce
  $$ L=\norm{\textbf{R}_{xy}^T\textbf{R}_{xy}^g-I}^2 + \norm{\vec{t}_{xy}-\vec{t}_{xy}^g}^2+\lambda \norm{\theta},$$
@@ -169,10 +173,22 @@ Dále ukázaly že s DGCNN dosahuje DCP lepších výsledku než s PointNet, a j
 %----------------------------------------------------------------------------------------
 
 \headerbox{Dosažené výsledky}{name=vysledky,column=2,span=2,row=0,below=dcp,above=bottom}{
-
 \begin{multicols}{2}
 
-Lorem ipsum im es ....
+Podařilo se natrénovat DCP na dvou po sobě jdoucích lidarových záběrech, tak, že z každého záběru bylo použito jen $N$ náhodných bodů. Výsledek použití této sítě je na obrázku \ref{fig:1}. 
+
+Dále byla síť trénována na všech dvojicích obsahující záběr stejné scény, tím se zvětšil dataset a trénování jsem nestihly dokončit. 
+
+Domníváme se že DCP nefungovalo, protože bylo vyvinuto a testováno pro určování vzájemné polohy dvou stejných objektu otočených, posunutých a zašuměných, ale ne deformovaných. To by mohlo jít napravit odstraněním bodů které nejsou v obou záběrech. Tato hypotéza by šla potvrdit testem na datech z interiéru.
+ 
+
+  
+\begin{center}
+\includegraphics[width=0.8\linewidth]{02.png}
+\captionof{figure}{Test na testovací sekvenci}
+\label{fig:1}
+\end{center}
+
 
 \end{multicols}
 }
@@ -206,9 +222,8 @@ $$\displaystyle m(x_i)=\argmin_j \norm{\textbf{R}_{xy}\vec x_i+\vec{t}_{xy} -\ve
 %----------------------------------------------------------------------------------------
 
 \headerbox{Další možné zlepšení}{name=next,column=1,below=dcp,bottomaligned=vysledky}{
-Dalšího zlepšení, které jsme již nestihly vyzkoušet, by šlo dosáhnout následujícími způsoby:
 \begin{itemize}\compresslist
-\item Natrénovat neuronovou sít na všech možných kombinacích záběrů, stejné scény, ne jen na dvou po sobě jdoucích.
+\item Nahradit $m=\softmax(\Phi_Y(y)^T \Phi_X(x_i))$ složitější funkcí, která by se nesnažila přiřadit body co nejsou v druhé množině.
 \item Trénovat neuronovou sít na více jízdách než jen na jedné.
 \item Při výpočtu aktuální pozice nevycházet jen z předešlého záběru scény ale všech v dosahu lidaru.
 \item Po vypočtení pozice pomocí DCP použít na tento výsledek ještě ICP pro zpřesnění výsledku.

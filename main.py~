@@ -1033,7 +1033,7 @@ def main():
     elif args.dataset == "odometry":
         if not args.draw:
           train_loader = DataLoader(
-              odometry_data.OdometryDataset("dataset/", "01", args.num_points),
+              odometry_data.OdometryDataset("dataset/", "00", args.num_points),
               batch_size=args.batch_size,
               shuffle=True,
               drop_last=True,

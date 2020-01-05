@@ -47,14 +47,12 @@ class OdometryDataset(tdata.Dataset):
         )
       
     
-    def __getitem__(self, ki):
-        i=k
+    def __getitem__(self, i):
         j=i+1;
         if self._kombine>0:
-          o=k%self._kombine
-          i=round(k/self._kombine)
-          j=max,o+i+1
-          
+          o=i%self._kombine
+          i=round(i/self._kombine)
+          j=min(o+i+1,self.__len__(self))
         
         a_cloud, b_cloud, T_ab, T_ba=self.get(i,j)
         

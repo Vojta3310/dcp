@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  3 JAN 2020 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.19)  5 JAN 2020 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1192,7 +1192,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/sc' tried instead on input line 109.
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10 pouºí-vaná p°i zarovnání sekvencí, je-jíº
  []
 
@@ -1200,40 +1200,50 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 2512) in paragraph at lines 165--165
+Underfull \hbox (badness 2512) in paragraph at lines 169--169
 \T1/ppl/m/n/10 40 kat-e-gorii. Pouºili 9 843 mod-el· na
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 165.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 169.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
+
+Underfull \hbox (badness 7631) in paragraph at lines 194--194
+\T1/ppl/m/n/10 vzá-jemné polohy dvou ste-jných ob-jektu
+ []
+
+
+Underfull \hbox (badness 6675) in paragraph at lines 194--194
+\T1/ppl/m/n/10 odstran¥ním bod· které ne-j-sou v obou
+ []
+
+<02.png, id=33, 296.307pt x 237.0456pt>
+File: 02.png Graphic file (type png)
+<use 02.png>
+Package pdftex.def Info: 02.png  used on input line 194.
+(pdftex.def)             Requested size: 161.10837pt x 128.88887pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 201.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 217.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 201.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 217.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 1005) in paragraph at lines 217--217
-[]\T1/ppl/m/n/10 Natrénovat neu-ronovou sít na v²ech
+Underfull \hbox (badness 6675) in paragraph at lines 232--232
+\T1/ppl/m/n/10 sloºit¥j²í funkcí, která by se nes-
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 217--217
-\T1/ppl/m/n/10 moºných kom-bi-nacích záb¥r·, ste-jné
- []
-
-
-Underfull \hbox (badness 8094) in paragraph at lines 217--217
+Underfull \hbox (badness 8094) in paragraph at lines 232--232
 []\T1/ppl/m/n/10 Po vy-po£tení poz-ice po-mocí DCP
  []
 
@@ -1241,12 +1251,12 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 1107) in paragraph at lines 229--229
+Underfull \hbox (badness 1107) in paragraph at lines 244--244
 \T1/ppl/m/n/10 sion" dataset, ob-sahu-jící 22 nahrávek jízd
  []
 
 
-Underfull \hbox (badness 7256) in paragraph at lines 229--229
+Underfull \hbox (badness 7256) in paragraph at lines 244--244
 []\T1/ppl/m/n/10 DCP bylo trénováno na jedné jízd¥ a
  []
 
@@ -1255,32 +1265,32 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 [2
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./poster.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./02.png>] (./poster.aux) 
+) 
 Here is how much of TeX's memory you used:
- 19419 strings out of 492982
- 409076 string characters out of 6134896
- 496813 words of memory out of 5000000
- 22581 multiletter control sequences out of 15000+600000
+ 19428 strings out of 492982
+ 409160 string characters out of 6134896
+ 500530 words of memory out of 5000000
+ 22588 multiletter control sequences out of 15000+600000
  30842 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,92p,519b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/shar
-e/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on poster.pdf (1 page, 130764 bytes).
+ 62i,12n,92p,519b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on poster.pdf (1 page, 204824 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
